@@ -1,0 +1,59 @@
+# Go Build Artifacts
+*.out
+*.o
+*.a
+*.exe
+*.test
+*.prof
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Vendored Dependencies
+vendor/
+
+# Dependency Management Tools
+
+# IDE-generated Files
+.idea/
+.DS_Store
+
+# Test Coverage Reports
+coverage.out
+
+# Local Environment Files
+.env
+
+# Logs
+logs/*.log
+
+# Temporary Files
+tmp/*
+
+# Gin Cache
+gin-cache/
+
+# Docker Compose
+docker-compose.yml
+docker-compose.override.yml
+
+# Sensitive Information
+.env.local
+.secrets
+
+# Platform Specific Ignore Files
+# Windows
+Thumbs.db
+
+# Mac
+.DS_Store
+
+# Linux
+.nfs*
+
+# Ignore all ignored files recursively
+
+# All empty directories
+
+# End

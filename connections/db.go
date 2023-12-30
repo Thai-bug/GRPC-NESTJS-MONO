@@ -13,6 +13,7 @@ func ConnectDB() {
 	db, error := gorm.Open(postgres.Open("postgres://thai-bug:12022021@localhost:9013?database=golang"), &gorm.Config{})
 
 	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Store{})
 
 	DB = db
 	ConnectionError = error

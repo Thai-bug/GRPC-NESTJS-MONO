@@ -14,7 +14,9 @@ type User struct {
 	Email     *string            `json:"email"`
 	CreatedAt time.Time          `json:"createdAt"`
 	Status    *StatusEnum.Status `json:"status" gorm:"default:1"`
-	Password  string             `json:"password"`
+	Password  string             `json:"-"`
+
+	Stores []*Store `json:"stores" -`
 	BaseModel
 }
 
@@ -22,4 +24,8 @@ func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
 	u.Password, _ = PasswordUtils.HashPassword(u.Password)
 
 	return
+}
+
+func (User) TableName() string {
+	return "user"
 }

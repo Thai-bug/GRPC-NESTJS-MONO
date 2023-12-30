@@ -5,6 +5,8 @@ import (
 	"web-service/routers"
 
 	"github.com/gin-gonic/gin"
+
+	Middlewares "web-service/utils/middlewares"
 )
 
 func main() {
@@ -15,9 +17,13 @@ func main() {
 
 	server := gin.Default()
 
+	server.Use(Middlewares.Log())
+
 	v1 := server.Group("/api/v1")
 	{
 		routers.UserRoutes(v1)
+		routers.StoreRoutes(v1)
+		routers.AuthRoutes(v1)
 	}
 
 	server.Run(":9091")

@@ -5,28 +5,15 @@ import (
 	UserDTO "web-service/dto/user"
 	"web-service/models"
 
-	StoreService "web-service/services/store"
+	"github.com/gin-gonic/gin"
 	UserService "web-service/services/user"
 	ResponseError "web-service/utils/errors"
-
-	"github.com/gin-gonic/gin"
 )
 
 func GetUsers(c *gin.Context) {
 	var users []models.User = UserService.GetUsers()
-	var result []models.User
 
-	for _, user := range users {
-		mapUser := &user
-		mapUser.Stores = []*models.Store{}
-		stores := StoreService.GetStoresOfUser(user)
-		for _, store := range stores {
-			mapUser.Stores = append(user.Stores, &store)
-		}
-		result = append(result, *mapUser)
-	}
-
-	c.JSON(200, result)
+	c.JSON(200, users)
 }
 
 func CreateUser(c *gin.Context) {

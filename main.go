@@ -3,6 +3,7 @@ package main
 import (
 	"web-service/connections"
 	"web-service/routers"
+	ENV "web-service/utils/env"
 
 	"github.com/gin-gonic/gin"
 
@@ -10,6 +11,7 @@ import (
 )
 
 func main() {
+	ENV.ProcessGetEnv()
 	connections.ConnectDB()
 	if connections.ConnectionError != nil {
 		panic(connections.ConnectionError)

@@ -38,6 +38,17 @@ func GetStoresOfUser(user models.User) []models.Store {
 	return stores
 }
 
+func GetStoresOfUsers(user []models.User) []models.Store {
+	var stores []models.Store
+	var userIds []int64
+	for _, user := range user {
+		userIds = append(userIds, user.ID)
+	}
+	connections.DB.Where("status = 1 and user_id in ?", userIds).Find(&stores)
+
+	return stores
+}
+
 func GetStores() []models.Store {
 	var stores []models.Store
 	connections.DB.Where("status = 1").Find(&stores)

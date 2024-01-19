@@ -1,0 +1,22 @@
+# Exclude Git files
+.git
+.gitignore
+
+# Exclude vendored dependencies (if using Go modules)
+vendor
+
+# Exclude IDE-specific files
+.vscode
+
+# Exclude Docker files themselves
+Dockerfile
+.dockerignore
+
+# Optional: Exclude local configuration files
+config.local.*
+
+# Optional: Exclude temporary files
+tmp/
+
+# Optional: Exclude test files
+test/
